@@ -27,6 +27,8 @@
 ## 核心文件
 
 - `AGENTS.md`: 所有 AI 进入仓库后的总入口宪法
+- `BOOTSTRAP_PROMPT.md`: 发给任意 AI 的统一接入提示词
+- `ONBOARDING.md`: 新 agent / 新 AI 的快速接入指南
 - `logs/events.jsonl`: 所有 agent 的结构化行为流
 - `inbox/capture.md`: 快速落地的临时收件箱
 - `agents/registry.md`: agent 注册表
@@ -96,8 +98,11 @@ cd /Users/dc/ai-memory
 ## 推荐入口
 
 - 所有 AI 先读 `AGENTS.md`
+- 给新 AI 复制 `BOOTSTRAP_PROMPT.md`
+- 新接入先读 `ONBOARDING.md`
 - 新 agent 入场时，先复制 `templates/agent-template.md` 或运行 `./scripts/init-memory-file.sh agent <name>`
 - 所有 AI 写入前先读 `system/preflight.md`
+- 周期性运行 `./scripts/check-duplicates.sh`
 - 每次会话至少写一条 `logs/events.jsonl`
 - 每天结束前运行 `./scripts/summarize-day.sh`
 - 每个活跃项目定期运行 `./scripts/summarize-project.sh <project>`
