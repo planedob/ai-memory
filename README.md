@@ -7,6 +7,7 @@
 - 把行为、决策、偏好、项目状态集中存储
 - 让不同 agent 读同一份上下文，减少重复解释
 - 用 Git 历史保留变化过程，方便回溯
+- 用统一事件流沉淀所有 agent 行为
 
 ## 目录
 
@@ -21,12 +22,32 @@
 - `templates/`: 模板
 - `scripts/`: 辅助脚本
 
+## 核心文件
+
+- `logs/events.jsonl`: 所有 agent 的结构化行为流
+- `inbox/capture.md`: 快速落地的临时收件箱
+- `agents/registry.md`: agent 注册表
+- `system/agent-protocol.md`: 多 agent 读写协议
+- `system/taxonomy.md`: 统一标签与字段建议
+
 ## 建议工作流
 
 1. 新的一天先运行 `scripts/new-day.sh`
-2. 有临时想法、行为、对话结论时先写到 `inbox/capture.md`
-3. 每天结束前把 inbox 整理到 `memories/`、`projects/`、`decisions/` 或 `daily/`
-4. 每次整理后提交到 Git
+2. agent 开始工作前先阅读 `system/agent-protocol.md`
+3. 有临时想法、行为、对话结论时先写到 `inbox/capture.md`
+4. 同时把关键行为写入 `logs/events.jsonl`
+5. 每天结束前把 inbox 整理到 `memories/`、`projects/`、`decisions/` 或 `daily/`
+6. 每次整理后提交到 Git
+
+## 快速命令
+
+```bash
+cd /Users/dc/ai-memory
+./scripts/new-day.sh
+./scripts/capture.sh codex "用户希望把所有 agent 记忆统一到 GitHub"
+./scripts/log-event.sh codex behavior "initialized repo structure" ai-memory high
+./scripts/init-memory-file.sh memory user-preferences
+```
 
 ## 建议存什么
 
@@ -50,3 +71,11 @@
 - 项目上下文放 `projects/`
 - 有结论的选择放 `decisions/`
 - 每条记录尽量带时间、来源、置信度
+- 所有关键 agent 行为追加到 `logs/events.jsonl`
+
+## 推荐协作方式
+
+- 每个 agent 先声明自己会读哪些文件、写哪些文件
+- 先把原始观察写进 `inbox/` 或 `logs/events.jsonl`
+- 整理后再沉淀成长期记忆
+- 事实、推断、计划分开写

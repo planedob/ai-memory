@@ -1,0 +1,2 @@
+{"time":"2026-03-31T18:55:00+08:00","agent":"codex","type":"behavior","summary":"initialized ai-memory repository","topic":"ai-memory","confidence":"high","tags":["agent","github","memory"]}
+{"time":"2026-03-31T19:00:00+08:00","agent":"codex","type":"decision","summary":"switched this repository to a dedicated ssh key","topic":"github-auth","confidence":"high","tags":["github","resolved","security"]}
