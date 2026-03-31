@@ -1,0 +1,7 @@
+{
+  "time": "2026-04-01T01:07:30+08:00",
+  "agent": "codex",
+  "topic": "telegram-bridge",
+  "summary": "示例错误已记录",
+  "details": "这是给 Telegram /error 命令用的样例"
+}

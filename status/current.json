@@ -1,0 +1,10 @@
+{
+  "task": "搭建 Telegram 本地实时状态层",
+  "phase": "started",
+  "started_at": "2026-04-01T01:07:13+08:00",
+  "updated_at": "2026-04-01T01:07:13+08:00",
+  "blocked": false,
+  "last_summary": "已创建 status 文件和桥接文档",
+  "cwd": "/Users/dc/ai-memory",
+  "last_error": ""
+}

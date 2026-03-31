@@ -20,6 +20,7 @@
 - `inbox/`: 临时记录，之后再整理
 - `decisions/`: 重要决策记录
 - `logs/`: 行为日志或自动化输出
+- `status/`: 本地实时状态层，给 Telegram 或其他面板读取
 - `system/`: 仓库级约定、标签、命名规范
 - `templates/`: 模板
 - `scripts/`: 辅助脚本
@@ -30,7 +31,11 @@
 - `BOOTSTRAP_PROMPT.md`: 发给任意 AI 的统一接入提示词
 - `ONBOARDING.md`: 新 agent / 新 AI 的快速接入指南
 - `logs/events.jsonl`: 所有 agent 的结构化行为流
+- `status/current.json`: 当前任务与阶段
+- `status/heartbeat.json`: 最近活跃状态
+- `status/last_error.json`: 最近错误
 - `inbox/capture.md`: 快速落地的临时收件箱
+- `inbox/telegram.md`: Telegram 投递的待办箱
 - `agents/registry.md`: agent 注册表
 - `system/agent-protocol.md`: 多 agent 读写协议
 - `system/preflight.md`: 所有 AI 写入前必须遵守的前置检查
@@ -100,6 +105,7 @@ cd /Users/dc/ai-memory
 - 所有 AI 先读 `AGENTS.md`
 - 给新 AI 复制 `BOOTSTRAP_PROMPT.md`
 - 新接入先读 `ONBOARDING.md`
+- 需要本地实时状态时，查看 `system/telegram-bridge.md`
 - 新 agent 入场时，先复制 `templates/agent-template.md` 或运行 `./scripts/init-memory-file.sh agent <name>`
 - 所有 AI 写入前先读 `system/preflight.md`
 - 周期性运行 `./scripts/check-duplicates.sh`
@@ -108,6 +114,14 @@ cd /Users/dc/ai-memory
 - 每个活跃项目定期运行 `./scripts/summarize-project.sh <project>`
 - 想把某个 topic 的事件自动归档到项目文件时，运行 `./scripts/route-event.sh <topic>`
 - 想一键做“写事件 + 总结 + 提交 + 推送”时，运行 `./scripts/session-close.sh <agent> "<summary>" <topic>`
+
+## 本地实时层
+
+- 这层只服务本地进度查询，不追求 GitHub 实时同步
+- `./scripts/update-current-status.sh` 更新当前任务
+- `./scripts/update-heartbeat.sh` 更新活跃状态
+- `./scripts/update-last-error.sh` 记录最近错误
+- `./scripts/read-status.sh status|heartbeat|error|progress|telegram` 供 Telegram Bot 或本地面板读取
 
 ## 路由规则
 
