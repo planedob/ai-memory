@@ -26,3 +26,7 @@
 
 - 如果不定期整理，inbox 会很快堆积
 - 若多个 agent 不遵守协议，信息会变得混乱
+
+## Recent Event Summary
+- 2026-03-31T18:43:00+08:00 | codex [behavior]: initialized local ai-memory repository structure
+- 2026-03-31T19:33:47+08:00 | codex [behavior]: added multi-agent memory protocol

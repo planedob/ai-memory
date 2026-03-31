@@ -47,6 +47,8 @@ cd /Users/dc/ai-memory
 ./scripts/capture.sh codex "用户希望把所有 agent 记忆统一到 GitHub"
 ./scripts/log-event.sh codex behavior "initialized repo structure" ai-memory high
 ./scripts/init-memory-file.sh memory user-preferences
+./scripts/summarize-day.sh
+./scripts/summarize-project.sh ai-memory
 ```
 
 ## 建议存什么
@@ -79,3 +81,10 @@ cd /Users/dc/ai-memory
 - 先把原始观察写进 `inbox/` 或 `logs/events.jsonl`
 - 整理后再沉淀成长期记忆
 - 事实、推断、计划分开写
+
+## 推荐入口
+
+- 新 agent 入场时，先复制 `templates/agent-template.md` 或运行 `./scripts/init-memory-file.sh agent <name>`
+- 每次会话至少写一条 `logs/events.jsonl`
+- 每天结束前运行 `./scripts/summarize-day.sh`
+- 每个活跃项目定期运行 `./scripts/summarize-project.sh <project>`
