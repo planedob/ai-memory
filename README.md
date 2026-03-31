@@ -2,6 +2,8 @@
 
 一个给多 agent / 多 AI 共用的 GitHub 记忆仓库。
 
+进入仓库后的第一个入口文档是 `AGENTS.md`。
+
 目标：
 
 - 把行为、决策、偏好、项目状态集中存储
@@ -24,6 +26,7 @@
 
 ## 核心文件
 
+- `AGENTS.md`: 所有 AI 进入仓库后的总入口宪法
 - `logs/events.jsonl`: 所有 agent 的结构化行为流
 - `inbox/capture.md`: 快速落地的临时收件箱
 - `agents/registry.md`: agent 注册表
@@ -34,13 +37,14 @@
 
 ## 建议工作流
 
-1. 新的一天先运行 `scripts/new-day.sh`
-2. agent 开始工作前先阅读 `system/preflight.md`、`system/change-control.md`、`system/agent-protocol.md`
-3. 先 `git pull --rebase origin main`
-4. 有临时想法、行为、对话结论时先写到 `inbox/capture.md`
-5. 同时把关键行为写入 `logs/events.jsonl`
-6. 每天结束前把 inbox 整理到 `memories/`、`projects/`、`decisions/` 或 `daily/`
-7. 每次整理后通过 `session-close.sh` 提交到 Git
+1. 进入仓库先阅读 `AGENTS.md`
+2. 新的一天先运行 `scripts/new-day.sh`
+3. agent 开始工作前先阅读 `system/preflight.md`、`system/change-control.md`、`system/agent-protocol.md`
+4. 先 `git pull --rebase origin main`
+5. 有临时想法、行为、对话结论时先写到 `inbox/capture.md`
+6. 同时把关键行为写入 `logs/events.jsonl`
+7. 每天结束前把 inbox 整理到 `memories/`、`projects/`、`decisions/` 或 `daily/`
+8. 每次整理后通过 `session-close.sh` 提交到 Git
 
 ## 快速命令
 
@@ -91,6 +95,7 @@ cd /Users/dc/ai-memory
 
 ## 推荐入口
 
+- 所有 AI 先读 `AGENTS.md`
 - 新 agent 入场时，先复制 `templates/agent-template.md` 或运行 `./scripts/init-memory-file.sh agent <name>`
 - 所有 AI 写入前先读 `system/preflight.md`
 - 每次会话至少写一条 `logs/events.jsonl`

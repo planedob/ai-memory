@@ -4,6 +4,7 @@
 
 ## 必读文件
 
+- `AGENTS.md`
 - `README.md`
 - `system/preflight.md`
 - `system/change-control.md`

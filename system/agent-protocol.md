@@ -4,6 +4,7 @@
 
 ## 开始工作前要读
 
+- `AGENTS.md`
 - `README.md`
 - `system/preflight.md`
 - `system/change-control.md`

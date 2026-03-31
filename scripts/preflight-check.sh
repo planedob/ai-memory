@@ -5,6 +5,7 @@ set -euo pipefail
 repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
 
 echo "== Required docs =="
+echo "Read: AGENTS.md"
 echo "Read: README.md"
 echo "Read: system/preflight.md"
 echo "Read: system/change-control.md"
