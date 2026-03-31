@@ -1,0 +1,5 @@
+kind,key,target
+project,ai-memory,projects/ai-memory.md
+project,github-auth,projects/ai-memory.md
+memory,user-preferences,memories/user-preferences.md
+memory,workflow,memories/workflows.md

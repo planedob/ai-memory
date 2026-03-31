@@ -8,6 +8,7 @@ events_file="$repo_dir/logs/events.jsonl"
 inbox_file="$repo_dir/inbox/capture.md"
 daily_file="$repo_dir/daily/$day.md"
 tmp_file="$(mktemp)"
+body_file="$(mktemp)"
 
 if [ ! -f "$daily_file" ]; then
   "$repo_dir/scripts/new-day.sh"
@@ -23,8 +24,16 @@ awk -v day="$day" '
   }
 ' "$events_file" > "$tmp_file"
 
+awk '
+  /<!-- AUTO_SUMMARY_START -->/ { skip=1; next }
+  /<!-- AUTO_SUMMARY_END -->/ { skip=0; next }
+  !skip { print }
+' "$daily_file" > "$body_file"
+mv "$body_file" "$daily_file"
+
 {
   echo ""
+  echo "<!-- AUTO_SUMMARY_START -->"
   echo "## Auto Summary"
   echo ""
   echo "### Event Stream"
@@ -36,6 +45,7 @@ awk -v day="$day" '
   echo ""
   echo "### Inbox Snapshot"
   sed -n '/## Entries/,$p' "$inbox_file"
+  echo "<!-- AUTO_SUMMARY_END -->"
 } >> "$daily_file"
 
 rm -f "$tmp_file"

@@ -7,6 +7,7 @@ project="${1:-}"
 events_file="$repo_dir/logs/events.jsonl"
 project_file="$repo_dir/projects/$project.md"
 tmp_file="$(mktemp)"
+body_file="$(mktemp)"
 
 if [ -z "$project" ]; then
   echo "Usage: scripts/summarize-project.sh <project-name>"
@@ -29,14 +30,23 @@ awk -v topic="$project" '
   }
 ' "$events_file" > "$tmp_file"
 
+awk '
+  /<!-- PROJECT_SUMMARY_START -->/ { skip=1; next }
+  /<!-- PROJECT_SUMMARY_END -->/ { skip=0; next }
+  !skip { print }
+' "$project_file" > "$body_file"
+mv "$body_file" "$project_file"
+
 {
   echo ""
+  echo "<!-- PROJECT_SUMMARY_START -->"
   echo "## Recent Event Summary"
   if [ -s "$tmp_file" ]; then
     cat "$tmp_file"
   else
     echo "- No events found for topic: $project"
   fi
+  echo "<!-- PROJECT_SUMMARY_END -->"
 } >> "$project_file"
 
 rm -f "$tmp_file"

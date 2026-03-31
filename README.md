@@ -49,6 +49,8 @@ cd /Users/dc/ai-memory
 ./scripts/init-memory-file.sh memory user-preferences
 ./scripts/summarize-day.sh
 ./scripts/summarize-project.sh ai-memory
+./scripts/route-event.sh ai-memory
+./scripts/session-close.sh codex "finished setting up shared memory flow" ai-memory
 ```
 
 ## 建议存什么
@@ -88,3 +90,12 @@ cd /Users/dc/ai-memory
 - 每次会话至少写一条 `logs/events.jsonl`
 - 每天结束前运行 `./scripts/summarize-day.sh`
 - 每个活跃项目定期运行 `./scripts/summarize-project.sh <project>`
+- 想把某个 topic 的事件自动归档到项目文件时，运行 `./scripts/route-event.sh <topic>`
+- 想一键做“写事件 + 总结 + 提交 + 推送”时，运行 `./scripts/session-close.sh <agent> "<summary>" <topic>`
+
+## 路由规则
+
+- 路由配置在 `system/routes.csv`
+- `project` 路由把 topic 归档到 `projects/*.md`
+- `memory` 路由给长期主题预留固定文件
+- 没有命中的 route 会自动回退到同名文件
