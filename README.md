@@ -28,16 +28,19 @@
 - `inbox/capture.md`: 快速落地的临时收件箱
 - `agents/registry.md`: agent 注册表
 - `system/agent-protocol.md`: 多 agent 读写协议
+- `system/preflight.md`: 所有 AI 写入前必须遵守的前置检查
+- `system/change-control.md`: 改动记录、提交、回档规则
 - `system/taxonomy.md`: 统一标签与字段建议
 
 ## 建议工作流
 
 1. 新的一天先运行 `scripts/new-day.sh`
-2. agent 开始工作前先阅读 `system/agent-protocol.md`
-3. 有临时想法、行为、对话结论时先写到 `inbox/capture.md`
-4. 同时把关键行为写入 `logs/events.jsonl`
-5. 每天结束前把 inbox 整理到 `memories/`、`projects/`、`decisions/` 或 `daily/`
-6. 每次整理后提交到 Git
+2. agent 开始工作前先阅读 `system/preflight.md`、`system/change-control.md`、`system/agent-protocol.md`
+3. 先 `git pull --rebase origin main`
+4. 有临时想法、行为、对话结论时先写到 `inbox/capture.md`
+5. 同时把关键行为写入 `logs/events.jsonl`
+6. 每天结束前把 inbox 整理到 `memories/`、`projects/`、`decisions/` 或 `daily/`
+7. 每次整理后通过 `session-close.sh` 提交到 Git
 
 ## 快速命令
 
@@ -76,6 +79,8 @@ cd /Users/dc/ai-memory
 - 有结论的选择放 `decisions/`
 - 每条记录尽量带时间、来源、置信度
 - 所有关键 agent 行为追加到 `logs/events.jsonl`
+- 同一个 topic 不重复建主文件
+- 所有改动都必须可通过 commit 回溯
 
 ## 推荐协作方式
 
@@ -87,6 +92,7 @@ cd /Users/dc/ai-memory
 ## 推荐入口
 
 - 新 agent 入场时，先复制 `templates/agent-template.md` 或运行 `./scripts/init-memory-file.sh agent <name>`
+- 所有 AI 写入前先读 `system/preflight.md`
 - 每次会话至少写一条 `logs/events.jsonl`
 - 每天结束前运行 `./scripts/summarize-day.sh`
 - 每个活跃项目定期运行 `./scripts/summarize-project.sh <project>`
