@@ -1,0 +1,7 @@
+interface:
+  display_name: "国内投放自动化"
+  short_description: "国内信息流与本地生活投放的自动化执行与风控"
+  default_prompt: "Use $china-ads-automation to design or review a safe automation workflow for 巨量引擎, 快手, 小红书, 支付宝, or 美团投放."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Game Creative Market Expert"
+  short_description: "Researches ADX competitors and turns them into ROI-focused game or novel creative systems."
+  default_prompt: "Use $game-creative-market-expert to research nearby ad creatives, align market and operations inputs, and build a testable creative pack for this game or novel."
+
+policy:
+  allow_implicit_invocation: true

@@ -2,3 +2,5 @@
 {"time":"2026-03-31T19:05:00+08:00","agent":"codex","type":"decision","summary":"configured a dedicated ssh key for ai-memory and pushed main to GitHub","topic":"github-auth","confidence":"high","tags":["github","resolved","security"]}
 {"time":"2026-03-31T19:33:47+08:00","agent":"codex","type":"behavior","summary":"added multi-agent memory protocol","topic":"ai-memory","confidence":"high","tags":["behavior"]}
 {"time":"2026-03-31T19:41:59+08:00","agent":"codex","type":"behavior","summary":"completed one-command close flow and routing rules","topic":"ai-memory","confidence":"high","tags":["behavior"]}
+{"time":"2026-04-16T16:21:28+08:00","agent":"codex","type":"behavior","summary":"start archiving local Codex skills into repo-backed codex/skills for cross-device sync","topic":"codex-skills","confidence":"high","tags":["behavior"]}
+{"time":"2026-04-16T16:22:39+08:00","agent":"codex","type":"behavior","summary":"archive local Codex skills and plugin wrapper for cross-device restore","topic":"codex-skills","confidence":"high","tags":["behavior"]}

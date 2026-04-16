@@ -1,0 +1,39 @@
+{
+  "name": "logo-generator",
+  "version": "0.1.0",
+  "description": "Generate SVG logo concepts and polished showcase presentations from a plugin-local skill.",
+  "author": {
+    "name": "op7418",
+    "url": "https://github.com/op7418"
+  },
+  "homepage": "https://github.com/op7418/logo-generator-skill",
+  "repository": "https://github.com/op7418/logo-generator-skill",
+  "license": "MIT",
+  "keywords": [
+    "logo",
+    "branding",
+    "svg",
+    "design"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Logo Generator",
+    "shortDescription": "Create logo concepts, SVG variants, and showcase presentations.",
+    "longDescription": "Generate multiple logo directions for a product or brand, iterate on SVG concepts, and produce higher-end presentation assets with plugin-local references and scripts.",
+    "developerName": "op7418",
+    "category": "Design",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/op7418/logo-generator-skill",
+    "privacyPolicyURL": "https://github.com/op7418/logo-generator-skill",
+    "termsOfServiceURL": "https://github.com/op7418/logo-generator-skill",
+    "defaultPrompt": "Create several logo directions for my product and prepare an SVG showcase.",
+    "brandColor": "#111111",
+    "composerIcon": "./assets/logo-generator-small.svg",
+    "logo": "./assets/logo-generator-logo.svg",
+    "screenshots": []
+  }
+}

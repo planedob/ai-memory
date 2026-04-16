@@ -1,0 +1,7 @@
+interface:
+  display_name: "流程复制"
+  short_description: "复刻热点测试站并补齐增长闭环的复用流程"
+  default_prompt: "Use $liucheng-fuzhi to clone a viral interactive site, ship a better UI, add sharing, ads, private traffic capture, analytics, and save the whole workflow as a reusable template."
+
+policy:
+  allow_implicit_invocation: true
